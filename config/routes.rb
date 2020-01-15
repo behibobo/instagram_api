@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   post 'upload_image', to: "uploader#upload_post_image"
   post 'auth/login', to: 'auth#login'
   post 'auth/signup', to: 'auth#signup'
+  put 'auth/update', to: 'auth#update'
+  put 'auth/update_password', to: 'auth#update_password'
   get 'dashboard', to: 'dashboard#index'
+  get 'my_posts', to: 'posts#my_posts'
 end

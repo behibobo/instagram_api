@@ -15,6 +15,25 @@ class AuthController < ApplicationController
       render json: @user
     end
 
+    def update
+      if current_user.update(user_params)
+        render json: current_user
+      else
+        render json: current_user.errors, status: :unprocessable_entity
+      end
+    end
+
+    def update_password
+      @user = User.find(current_user.id)
+      unless @user.try(:authenticate, params[:old_password])
+        render json: { error: "password is incorrect" }, status: :unauthorized
+        return 
+      end
+
+      @user.update(password: params[:new_password])
+      render json: @user
+    end
+
     private
     def authenticate(username, password)
       user = User.find_by(username: username)
@@ -27,5 +46,10 @@ class AuthController < ApplicationController
       else
         render json: { error: command.errors }, status: :unauthorized
       end
-     end
+    end
+
+    private
+    def user_params
+      params.permit(:first_name, :last_name)
+    end
   end

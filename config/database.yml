@@ -17,7 +17,7 @@ development:
   encoding: unicode
   database: instagram_development
   pool: 5
-  username: bobo
+  username: behzad
   password: p@ssw0rd
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -43,7 +43,7 @@ test:
   encoding: unicode
   database: instagram_test
   pool: 5
-  username: bobo
+  username: behzad
   password: p@ssw0rd
 
 production:
@@ -51,5 +51,5 @@ production:
   encoding: unicode
   database: instagram_production
   pool: 5
-  username: bobo
+  username: behzad
   password: p@ssw0rd
