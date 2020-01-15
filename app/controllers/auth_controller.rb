@@ -41,7 +41,8 @@ class AuthController < ApplicationController
 
       if command.success?
         render json: {
-          token: command.result
+          token: command.result,
+          profile_completed: !(user.first_name.nil? or user.last_name.nil?) 
         }
       else
         render json: { error: command.errors }, status: :unauthorized

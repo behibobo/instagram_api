@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   put 'auth/update_password', to: 'auth#update_password'
   get 'dashboard', to: 'dashboard#index'
   get 'my_posts', to: 'posts#my_posts'
+  get 'posts/:id/like', to: 'posts#like'
 end

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :update, :destroy]
+  before_action :set_post, only: [:show, :update, :destroy, :like]
 
   # GET /posts
   def index
@@ -10,6 +10,15 @@ class PostsController < ApplicationController
   def my_posts
     @posts = current_user.posts
     render json: @posts
+  end
+
+  def like
+    like = @post.post_likes.where(user: current_user).first
+    if like.nil?
+      PostLike.create(user: current_user, post: @post)
+    else
+      like.destroy
+    end
   end
 
   # GET /posts/1
