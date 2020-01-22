@@ -23,6 +23,10 @@ class AuthController < ApplicationController
       end
     end
 
+    def me
+      render json: current_user
+    end
+
     def update_password
       @user = User.find(current_user.id)
       unless @user.try(:authenticate, params[:old_password])
@@ -42,6 +46,7 @@ class AuthController < ApplicationController
       if command.success?
         render json: {
           token: command.result,
+          user: ActiveModelSerializers::SerializableResource.new(user),
           profile_completed: !(user.first_name.nil? or user.last_name.nil?) 
         }
       else

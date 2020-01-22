@@ -18,9 +18,9 @@ class User < ApplicationRecord
 
   def user_avatar
     unless self.avatar.nil?
-      "http://localhost:3000#{self.avatar}"
+      "http://176.9.164.199:3004#{self.avatar}"
     else
-      "http://localhost:3000/user.png"
+      "http://176.9.164.199:3004/user.png"
     end
   end
 

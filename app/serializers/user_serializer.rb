@@ -6,6 +6,6 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def avatar
-    "http://localhost:3000#{object.avatar}"
+    object.user_avatar
   end
 end

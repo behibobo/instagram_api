@@ -3,7 +3,7 @@ class PostSerializer < ActiveModel::Serializer
   :user_image, :like_count, :like_by_user
   
   def image
-    "http://localhost:3000#{object.image}"
+    "http://176.9.164.199:3004#{object.image}"
   end
 
   def user_image
