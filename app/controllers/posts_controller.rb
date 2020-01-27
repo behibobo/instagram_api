@@ -48,7 +48,7 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1
   def destroy
-    @post.destroy
+    @post.destroy unless current_user.id != @post.user.id
   end
 
   private
