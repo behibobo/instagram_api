@@ -18,7 +18,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'faker'
 gem 'will_paginate', '~> 3.1.0'
 gem 'rails_pdate'
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
